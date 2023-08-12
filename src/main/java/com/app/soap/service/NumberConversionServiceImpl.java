@@ -15,17 +15,19 @@ public class NumberConversionServiceImpl implements NumberConvertService{
 
 	@Autowired
 	NumberRepository numberRepo;
-	NumberConversion conversion = new NumberConversion();
 	
 	@Override
 	public Number numberToWord(int number) {
+
+	NumberConversion conversion = new NumberConversion();
 
 	String convertedWord = conversion.getNumberConversionSoap().numberToWords(BigInteger.valueOf(number));
 	Number num = new Number();
 	
 	num.setConvertedWord(convertedWord);
-	num = numberRepo.save(num);
+	num.setNumber(number);
 	
+	num = numberRepo.save(num);
 	return num;	
 	}
 
