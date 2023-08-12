@@ -18,15 +18,15 @@ public class NumberConversionServiceImpl implements NumberConvertService{
 	NumberConversion conversion = new NumberConversion();
 	
 	@Override
-	public String numberToWord(int number) {
+	public Number numberToWord(int number) {
 
 	String convertedWord = conversion.getNumberConversionSoap().numberToWords(BigInteger.valueOf(number));
 	Number num = new Number();
 	
 	num.setConvertedWord(convertedWord);
-	numberRepo.save(num);
+	num = numberRepo.save(num);
 	
-	return convertedWord;	
+	return num;	
 	}
 
 	@Override
@@ -35,6 +35,22 @@ public class NumberConversionServiceImpl implements NumberConvertService{
 		List<Number> allConvertedWords = numberRepo.findAll();
 		return allConvertedWords;
 	}
+
+	
+	
+	@Override
+	public String deleteWordById(int id) {
+		numberRepo.deleteById(id);
+		return "Word Deleted Successfully";
+	}
+
+	@Override
+	public Number getWordById(int id) {
+		Number number = numberRepo.findById(id).get();
+		return number;
+	}
+	
+	
 
 	
 

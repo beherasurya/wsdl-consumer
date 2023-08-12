@@ -6,9 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
-
 @Entity
 @Table(name = "number")
 public class Number {
@@ -17,6 +14,14 @@ public class Number {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String convertedWord;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
