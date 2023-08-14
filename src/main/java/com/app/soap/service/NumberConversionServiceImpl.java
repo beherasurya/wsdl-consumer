@@ -20,14 +20,14 @@ public class NumberConversionServiceImpl implements NumberConvertService{
 	public Number numberToWord(int number) {
 
 	NumberConversion conversion = new NumberConversion();
-
 	String convertedWord = conversion.getNumberConversionSoap().numberToWords(BigInteger.valueOf(number));
-	Number num = new Number();
 	
+	Number num = new Number();	
 	num.setConvertedWord(convertedWord);
-	num.setNumber(number);
 	
+	num.setNumber(number);
 	num = numberRepo.save(num);
+	
 	return num;	
 	}
 
@@ -53,7 +53,39 @@ public class NumberConversionServiceImpl implements NumberConvertService{
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public String convertNumberToWord(int number) {
 
+		NumberConversion conversion = new NumberConversion();
+		String convertedWord = conversion.getNumberConversionSoap().numberToWords(BigInteger.valueOf(number));
+		
+		return convertedWord;
+	}
 	
 
 	
